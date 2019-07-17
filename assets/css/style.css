@@ -1,7 +1,7 @@
  /* All the code for the split page functionality */
  
  :root {
-     --container-bg-color: #333;
+     --container-bg-color: rgba(93, 163, 215, 0);
      --left-bg-color: rgba(93, 163, 215, 0.726);
      --left-button-hover-color: rgba(0, 250, 231, 0.3);
      --right-bg-color: rgba(0, 250, 231, 0.8);
@@ -26,7 +26,7 @@
      color: #fff;
      position: absolute;
      left: 50%;
-     top: 20%;
+     top: 10%;
      transform: translateX(-50%);
      white-space: nowrap;
  }
@@ -155,8 +155,53 @@
  }
  /* navigation */
  
- .navBar {
-     display: inline;
+ ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     background-color: rgb(92, 108, 143);
+     transform: rotate(180deg);
+ }
+ 
+ ul>li {
+     transform: rotate(-180deg);
+ }
+ 
+ li {
+     float: left;
+ }
+ 
+ li a {
+     display: block;
+     color: white;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+ }
+ /* Change the link color to #111 (black) on hover */
+ 
+ li a:hover {
+     background-color: rgb(77, 78, 100);
  }
  /* main area of the pages */
+ 
+ .bg-primary {
+     background-color: #80dbd7!important;
+ }
+ 
+ h1.splash {
+     margin-top: 10px!important;
+ }
+ 
+ .btn-primary {
+     color: #fff;
+     background-color: rgb(93, 163, 215);
+     border-color: #007bff;
+ }
+ 
+ abbr[data-original-title],
+ abbr[title] {
+     text-decoration: none;
+ }
  /* asides and sidebars */
