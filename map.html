@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6gGOLA3wg7UEzUKZupXKog_4QaqUyd9s&callback=initMap">
+    </script>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Google Map</h1>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      //map options
+      var options = {
+        zoom: 13,
+        center: { lat: 39.952583, lng: -75.165222 }
+      }
+      //new map
+      var map = new google.maps.Map(document.getElementById("map"), options);
+    }
+    //coordinates for dog parks
+    //array
+    var markers = [
+      { coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" },
+      { coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" },
+      { coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" },
+      { coords: { lat: 39.965800, lng: -75.141910 }, content: "<h1>Liberty Lands</h1>" },
+      { coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" }
+    ];
+    //loop thru markers
+    for(var i =0; i<markers.length; i++){
+      //add marker
+      addMarker(markers[i]);
+    }
+  
+    // addMarker({ coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" });
+    // addMarker({ coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" });
+    // addMarker({ coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" });
+    // addMarker({ coords: { lat: 39.965800, lng: -75.141910 }, content: "<h1>Liberty Lands</h1>" });
+    // addMarker({ coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" });
+    //adding a new marker
+    function addMarker(props) {
+      var marker = new google.maps.Marker({
+        position: props.coords,
+        map: map
+      });
+      if (props.content) {
+        var infowindow = new google.maps.infowindow({
+          content: props.content
+        });
+        marker.addListener("click", function () {
+          infowindow.open(map, marker);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
