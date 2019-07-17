@@ -9,12 +9,13 @@
             $(document).ready(function () {
                 $('#etsy-search').bind('submit', function () {
                     api_key = "tunvbvzkqlqud5kkqfrvjyuk";
-                    terms = $('#etsy-terms').val();
-                    etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+
+                    // terms = $('#etsy-terms').val();
+                    terms= $('#dog_toys').val();
+                    etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+ 
                 terms+"&limit=12&includes=Images:1&api_key="+api_key;
 
-                    etsyURL = "https://openapi.etsy.com/v2/listings/:listing_id/inventory/active.js?keywords=" +
-                        terms + "&write_missing_inventory&limit=15&includes=Images:1&api_key=" + api_key;
+                    // etsyURL = "https://openapi.etsy.com/v2/listings/:listing_id/inventory/active.js?keywords=" +
+                        // terms + "&write_missing_inventory&limit=15&includes=Images:1&api_key=" + api_key;
 
                     // etsyURLOne = "https://openapi.etsy.com/v2/shops/?api_key=$apikey=" +
                     //     terms + "&limit=12&includes=Images:1&api_key=" + api_key;
@@ -22,7 +23,8 @@
                     // realTimeFeed="https://openapi.etsy.com/v2/feeds/";
                     // etsyURLRealTime=realTimeFeed+terms+"&limit=12&includes=Images:1&api_key=" + api_key;
 
-                    $('#etsy-images').empty();
+                    // $('#etsy-images').empty();
+                    $('#dog_toys').empty();
                     $('<p></p>').text('Searching for ' + terms).appendTo('#etsy-images');
 
                     $.ajax({
@@ -35,7 +37,6 @@
                                     $.each(data.results, function (i, item) {
                                         $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#etsy-images").wrap(
                                             // "<a href='" + item.url + "'></a>"
-
                                             $("#etsy-images <a href=" + item.url + "></a>").attr("target", "_blank")
                                         );
                                         if (i % 4 == 3) {
@@ -63,7 +64,8 @@
 
 <body>
     <form id="etsy-search">
-        <input id="etsy-terms" size="32">
+        <!-- <input id="etsy-terms" size="32"> -->
+        <input id="dog_toys" size="32">
         <button>Search!</button>
     </form>
 
