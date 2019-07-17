@@ -13,55 +13,17 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="split left">
+            <h1></h1>
+            <a href="dogLander.html" class="button">dogs here</a>
+        </div>
+        <div class="split right">
+            <h1></h1>
+            <a href="humanLander.html" class="button">humans here</a>
+        </div>
+    </div>
+</body>
+<script src="assets/javascript/logic.js"></script>
 
-    <!DOCTYPE html>
-<html>
-  <head>
-    <title>Custom Markers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiYfpQ3cOaBefEwmrtKPYL6lJwNKwEtro&callback=initMap">
-    </script>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(
-            document.getElementById('map'),
-            {center: new google.maps.LatLng(39.952583, -75.165222), zoom: 16});
-            var baseUrl = 'https://api.foursquare.com/v2/venues/search?',
-  clientId = 'BLXFW3TP3420UHAPHZWOEZWJXLBASTAISBD1QTCRCWL3R0YW',
-   clientSecret = '3EHZSWMA1AXWC3GN4O5Y0LK3VLTDVUGFPEAVC01GY3W54XYW';
- function getVenueDetails(location, infoWindowCallback) {
- foursquareUrl = baseUrl + '&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20161207&query=' + Model[location].id + '&ll=11.93,79.82';
- $.getJSON(foursquareUrl)
-  .done(function(data){
-    var currentVenue = data.response.venues[0];
-    var placeName = currentVenue.name;
-    var placeAddress = currentVenue.address.formattedAddress;
-    var placePhonenos = (currentVenue.contact.formattedPhone === undefined)? 'None': currentVenue.contact.formattedPhone;
-   windowContent = '<div id="iw_container"><p><strong>Name: </strong>' + placeName+ '</p>' +
-                '<p><strong>Address: </strong>  ' + placeAddress + '</p>' +
-                '<p><strong>Phone: </strong>' + placePhonenos + '</p></div>';
-   infoWindowCallback(windowContent);
-  }).fail(function(error){
-    infoWindow.setContent('Fail to connect to Foursquare: ' + error);
-  }
-  );
-   }
+</html>
