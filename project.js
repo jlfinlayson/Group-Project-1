@@ -1,27 +1,30 @@
-// setting up dummy variables
+
+// set up array
 var dogBreeds = ["bulldog", "labrador retriever", "poodle", "pug", "beagle", "chihuahua", "german shepherd", "golden retriever"];
 console.log(dogBreeds);
 
-// set up array
 function renderbuttons() {
     $("#dogs").empty()
     for (var i = 0; i < dogBreeds.length; i++) {
         $("#dogs").append(`<button type="button" class="btn btn-danger dogBreed enterDog" data-id=${i}> ${dogBreeds[i]}</button>`)
-        console.log("try these: "+ index);
+        console.log("try these: "+ dogBreeds[i]);
     }
 }
 
 // start function
 $(document).on("click", ".dogBreed", function () {
-    console.log("button clicked: ", index)
     var index = parseInt($(this).attr("data-id"));
+    console.log("button clicked: ", index)
     var dogs = dogBreeds[index];
     console.log(dogs);
-    console.log("button clicked: ", index, dogs)
+    console.log("button clicked: ", dogs)
 
     // petfinder API key
     var apiKey = "Lz4dG5pFxkgJKM8QvScIR8r67gxl5pFJY516qNDMjX3bCcWfpt"
-    var queryURL = "TFh3xWUu7tQdnQTjU1HTClSqG5gh0qXBMiKo09b0" + "q=" + dogs + "api_key=" + apiKey + "&limit=10";
+    var secret="TFh3xWUu7tQdnQTjU1HTClSqG5gh0qXBMiKo09b0"
+    var queryURL="https://api.petfinder.com/v2/animals"
+
+    queryURL = queryURL + "breed=" + dogBreeds + "api_key=" + apiKey + "&limit=10";
     console.log(dogs);
     // AJAX function
     $.ajax({
@@ -42,3 +45,4 @@ $(document).on("click", ".dogBreed", function () {
             $("available dogs here").prepend(imageDiv);
         })
 });
+renderbuttons();
