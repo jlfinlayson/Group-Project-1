@@ -4,42 +4,38 @@
     <title>Etsy jQuery Demo</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript">
-
         function callEtsy() {
             api_key = "tunvbvzkqlqud5kkqfrvjyuk";
             terms = "dog toys"
             etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords=" +
-                terms + "&limit=12&includes=Images:1&api_key=" + api_key;
-
-            $('<p></p>').text('Searching for ' + terms).appendTo('#dogToys');
-
+                terms + "&limit=15&includes=Images:1&api_key=" + api_key;
+            $('<p></p>').text('Searching for ' + terms).append('#dogToys');
             $.ajax({
                 url: etsyURL,
                 dataType: 'jsonp',
                 success: function (data) {
+                    console.log(data);
                     if (data.ok) {
-                        $('#etsy-images').empty();
+                        $('#dogToys').empty();
                         if (data.count > 0) {
                             $.each(data.results, function (i, item) {
                                 // HERE IS WHERE YOU ADD IN YOUR CAROSEL LOAD
-                                $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#etsy-images").wrap(
-                                    $("#etsy-images <a href=" + item.url + "></a>").attr("target", "_blank")
+                                $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#dogToys").wrap(
+                                    $("#dogToys <a href=" + item.url + "></a>").attr("target", "_blank")
                                 );
                                 if (i % 4 == 3) {
-                                    $('<br/>').appendTo('#etsy-images');
+                                    $('<br/>').appendTo('#dogToys');
                                 }
                             })
                         } else {
-                            $('<p>No results.</p>').appendTo('#etsy-images');
+                            $('<p>No results.</p>').appendTo('#dogToys');
                         }
                     } else {
-                        $('#etsy-images').empty();
+                        $('#dogToys').empty();
                         alert(data.error);
                     }
                 }
-
             });
-
             return false;
         }
         window.onload = callEtsy();
