@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <!-- we should agree to a team name and logo then make a favicon here -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
     <title>The Dog's Guide for Humans</title>
 </head>
@@ -27,9 +29,104 @@
                 </ul>
             </nav>
         </header>
+        <!-- main area for content, using bootstrap here -->
         <div class="mainArea">
-            <article></article>
-            <aside></aside>
+            <header class="bg-primary py-5 mb-5">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-lg-12" style="height: 150px;">
+                            <h1 class="display-4 text-white mt-5 mb-2">"Welcome, dog lovers!"</h1>
+                            <p class="lead mb-5 text-slateblue-50">"We'd love to present you with fun ideas and some resources where your four-legged friend can paw-tay!"</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="divContainer">
+
+                <div class="row">
+                    <div class="col-md-8 mb-5">
+                        <h2>Responsible Ownership</h2>
+                        <hr>
+                        <p>Owning a caring for a dog is a great responsibilty. On this page we have curated some pretty important resources to help you be a good responsible owner.</p>
+                        <p>Below, you'll find some great resources to help you find a pet, find a vet and some other resources to encourage good, responsible ownership. </p>
+                        <!-- <a class="btn btn-primary btn-lg" href="#">Button &raquo;</a> -->
+                    </div>
+                    <div class="col-md-4 mb-5" id="humanSidebar">
+                        <h2>Contact Us</h2>
+                        <hr>
+                        <address>
+                      <strong>Our Site name</strong>
+                      <br>Some address
+                      <br>Philadelphia, PA 19101
+                      <br>
+                    </address>
+                        <address>
+                      <abbr title="Phone">P:</abbr>
+                      (215) 686-1776
+                      <br>
+                      <abbr title="Email">E:</abbr>
+                      <a href="mailto:#">name@example.com</a>
+                    </address>
+                    </div>
+                </div>
+
+                <!-- cards -->
+                <!-- Vets card, link to the map page -->
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="assets/img/vet.jpg" alt="Philadelphia Vetenarians">
+                            <div class="card-body">
+                                <h4 class="card-title">Vets</h4>
+                                <p class="card-text">Whether its a routine check up or a good old fashioned sick call, you're gonna want to be able to locate decent pet health care. Here are some good local Vets.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="vetMapStyled.html" class="btn btn-primary">Find a vet</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adoption/Rescue links or page -->
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="assets/img/adopt.webp" alt="Adoption resources">
+                            <div class="card-body">
+                                <h4 class="card-title">Adoption</h4>
+                                <p class="card-text">Looking for a new dog? If you have considered adoption or rescue, these resources will pair you with your perfect bud.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- resources -->
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="assets/img/resources.jpg" alt="Important resources">
+                            <div class="card-body">
+                                <h4 class="card-title">Resources</h4>
+                                <p class="card-text">This is the important stuff a good responsible owner needs to know. The sometimes forgotten details that seperate the good owners from the pack.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="resources.html" class="btn btn-primary">Find Out More!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            <!-- Footer -->
+            <footer class="py-5 bg-dark" id="footerGlobal">
+                <div class="container">
+                    <p class="m-0 text-center text-white"><img src="assets/img/cropped-pawsandthink-newlogo_favicon.png" width="64px" id="footerLogo">Copyright &copy; Your Website 2019</p>
+                </div>
+            </footer>
+
         </div>
     </div>
 </body>

@@ -1,11 +1,11 @@
  /* All the code for the split page functionality */
  
  :root {
-     --container-bg-color: rgba(93, 163, 215, 0);
-     --left-bg-color: rgba(93, 163, 215, 0.726);
-     --left-button-hover-color: rgba(0, 250, 231, 0.3);
-     --right-bg-color: rgba(0, 250, 231, 0.8);
-     --right-button-hover-color: rgba(93, 163, 215, 0.3);
+     --container-bg-color: rgba(82, 104, 151, 0);
+     --left-bg-color: rgba(82, 104, 151, 0.726);
+     --left-button-hover-color: rgba(255, 212, 79, 0.3);
+     --right-bg-color: rgba(255, 212, 79, 0.8);
+     --right-button-hover-color: rgba( 82, 104, 151, 0.3);
      --hover-width: 75%;
      --other-width: 25%;
      --speed: 1000ms;
@@ -160,12 +160,16 @@
      margin: 0;
      padding: 0;
      overflow: hidden;
-     background-color: rgb(92, 108, 143);
-     transform: rotate(180deg);
+     background-color: rgb(82, 104, 151);
+     /* transform: rotate(180deg); */
  }
- 
+ /*  
  ul>li {
      transform: rotate(-180deg);
+ } */
+ 
+ a {
+     color: rgb(82, 104, 151);
  }
  
  li {
@@ -179,15 +183,16 @@
      padding: 14px 16px;
      text-decoration: none;
  }
- /* Change the link color to #111 (black) on hover */
  
  li a:hover {
-     background-color: rgb(77, 78, 100);
+     background-color: rgb(255, 212, 79);
+     color: rgb(82, 104, 151);
+     text-decoration: none;
  }
  /* main area of the pages */
  
  .bg-primary {
-     background-color: #80dbd7!important;
+     background-color: rgb(255, 212, 79)!important;
  }
  
  h1.splash {
@@ -196,8 +201,12 @@
  
  .btn-primary {
      color: #fff;
-     background-color: rgb(93, 163, 215);
-     border-color: #007bff;
+     background-color: rgb(255, 212, 79);
+     /* border: 5px solid rgb(82, 104, 151); */
+ }
+ 
+ .btn-primary:hover {
+     background-color: rgb(82, 104, 151);
  }
  
  abbr[data-original-title],
@@ -205,4 +214,34 @@
      text-decoration: none;
  }
  /* asides and sidebars */
-
+ 
+ #humanSidebar {
+     background-color: rgb(255, 212, 79);
+     color: white;
+ }
+ 
+ #dogSidebar {
+     background-color: rgb(255, 212, 79);
+     color: white;
+ }
+ /* Map Page */
+ 
+ .mapContainer {
+     margin-bottom: 50px;
+ }
+ 
+ #content h1 {
+     color: black;
+     font-size: 1rem;
+ }
+ /* Footer */
+ 
+ #footerGlobal {
+     background-color: rgb(82, 104, 151)!important;
+     width: 100%;
+ }
+ 
+ #footerLogo {
+     float: left;
+     margin-left: 150px;
+ }
