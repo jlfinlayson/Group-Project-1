@@ -241,8 +241,8 @@
                                 //marker info
                                 function addMarker() {
                                     for (var i = 0; i < markersOnMap.length; i++) {
-                                        var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
-                                            '</h1><p>' + markersOnMap[i].address + '</p></div>' + markersOnMap[i].phone + '</p></div>';
+                                        var contentString = '<div id="content"><h4>' + markersOnMap[i].placeName +
+                                            '</h4><p>' + markersOnMap[i].address + '</p></div>' + markersOnMap[i].phone + '</p></div>';
 
                                         const marker = new google.maps.Marker({
                                             position: markersOnMap[i].LatLng[0],
