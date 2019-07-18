@@ -204,3 +204,8 @@
      text-decoration: none;
  }
  /* asides and sidebars */
+ /* Map Page */
+ 
+ .mapContainer {
+     margin-bottom: 50px;
+ }
