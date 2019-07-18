@@ -115,9 +115,9 @@ function callEtsyTwo() {
                         console.log("title media div created");
 
                         //div class title_img
-                        var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135);
+                        // var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135);
 
-
+                        var titleImgDiv = $('<a href="' + item.url + '"><img class="tile_img" src="' + item.Images[0].url_170x135 + '"></a>');
                         // prepend it all above last
                         titleMediaDiv.append(titleImgDiv);
                         titleDiv.append(titleMediaDiv);
@@ -186,7 +186,8 @@ function callEtsyThree() {
                         console.log("title media div created");
 
                         //div class title_img
-                        var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135);
+                        // var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135);
+                        var titleImgDiv = $('<a href="' + item.url + '"><img class="tile_img" src="' + item.Images[0].url_170x135 + '"></a>');
 
                         titleMediaDiv.append(titleImgDiv);
                         titleDiv.append(titleMediaDiv);
@@ -255,7 +256,8 @@ $(document).ready(function () {
                             console.log("title media div created");
 
                             //div class title_img
-                            var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135)
+                            // var titleImgDiv = $("<img>").addClass("tile_img").attr("src", item.Images[0].url_170x135)
+                            var titleImgDiv = $('<a href="' + item.url + '"><img class="tile_img" src="' + item.Images[0].url_170x135 + '"></a>');
 
                             // prepend it all above last
                             titleMediaDiv.append(titleImgDiv);

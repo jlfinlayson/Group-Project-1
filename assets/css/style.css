@@ -30,6 +30,12 @@
      transform: translateX(-50%);
      white-space: nowrap;
  }
+
+ h2{
+    color:rgb(82, 104, 151);
+    font-size: 60px;
+    margin-top: 10px;
+ }
  
  .button {
      display: block;
