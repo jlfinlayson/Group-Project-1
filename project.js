@@ -20,11 +20,11 @@ $(document).on("click", ".dogBreed", function () {
     console.log("button clicked: ", dogs)
 
     // petfinder API key
-    var apiKey = "Lz4dG5pFxkgJKM8QvScIR8r67gxl5pFJY516qNDMjX3bCcWfpt"
+    var clientID = "Lz4dG5pFxkgJKM8QvScIR8r67gxl5pFJY516qNDMjX3bCcWfpt"
     var secret="TFh3xWUu7tQdnQTjU1HTClSqG5gh0qXBMiKo09b0"
     var queryURL="https://api.petfinder.com/v2/animals"
 
-    queryURL = queryURL + "breed=" + dogBreeds + "api_key=" + apiKey + "&limit=10";
+    queryURL = queryURL + "breed=" + dogs + "api_key=" + clientID + "&limit=10";
     console.log(dogs);
     // AJAX function
     $.ajax({
