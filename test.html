@@ -1,76 +1,124 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Etsy jQuery Demo</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript">
-        (function ($) {
-
-            $(document).ready(function () {
-                $('#etsy-search').bind('submit', function () {
-                    api_key = "tunvbvzkqlqud5kkqfrvjyuk";
-                    // terms = $('#etsy-terms').val();
-                    terms= $('#dog_toys').val();
-                    etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+ 
-                terms+"&limit=12&includes=Images:1&api_key="+api_key;
-
-                    // etsyURL = "https://openapi.etsy.com/v2/listings/:listing_id/inventory/active.js?keywords=" +
-                        // terms + "&write_missing_inventory&limit=15&includes=Images:1&api_key=" + api_key;
-
-                    // etsyURLOne = "https://openapi.etsy.com/v2/shops/?api_key=$apikey=" +
-                    //     terms + "&limit=12&includes=Images:1&api_key=" + api_key;
-
-                    // realTimeFeed="https://openapi.etsy.com/v2/feeds/";
-                    // etsyURLRealTime=realTimeFeed+terms+"&limit=12&includes=Images:1&api_key=" + api_key;
-
-                    // $('#etsy-images').empty();
-                    $('#dog_toys').empty();
-                    $('<p></p>').text('Searching for ' + terms).appendTo('#etsy-images');
-
-                    $.ajax({
-                        url: etsyURL,
-                        dataType: 'jsonp',
-                        success: function (data) {
-                            if (data.ok) {
-                                $('#etsy-images').empty();
-                                if (data.count > 0) {
-                                    $.each(data.results, function (i, item) {
-                                        $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#etsy-images").wrap(
-                                            // "<a href='" + item.url + "'></a>"
-                                            $("#etsy-images <a href=" + item.url + "></a>").attr("target", "_blank")
-                                        );
-                                        if (i % 4 == 3) {
-                                            $('<br/>').appendTo('#etsy-images');
-                                        }
-                                    })
-                                } else {
-                                    $('<p>No results.</p>').appendTo('#etsy-images');
-                                }
-                            } else {
-                                $('#etsy-images').empty();
-                                alert(data.error);
-                            }
-                        }
-
-                    });
-
-                    return false;
-                })
-            });
-
-        })(jQuery);
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- we should agree to a team name and logo then make a favicon here -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+    <title>The Dog's Guide for Humans</title>
 </head>
 
 <body>
-    <form id="etsy-search">
-        <!-- <input id="etsy-terms" size="32"> -->
-        <input id="dog_toys" size="32">
-        <button>Search!</button>
-    </form>
+    <div class="enchilada">
+        <header>
+            <nav id="navBar">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a></li>
+                    <li>
+                        <a href="dogLander.html">Fun with your dog</a></li>
+                    <li>
+                        <a href="humanLander.html">Responsible Ownership</a></li>
+                    <li>
+                        <a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- main area for content, using bootstrap here -->
+        <div class="mainArea">
+            <header class="bg-primary py-5 mb-5">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-lg-12" style="height: 150px;">
+                            <h1 class="display-4 text-white mt-5 mb-2">"Welcome, dog lovers!"</h1>
+                            <p class="lead mb-5 text-slateblue-50">"We'd love to present you with fun ideas and some resources where your four-legged friend can paw-tay!"</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-    <div id="etsy-images"></div>
+            <!-- Page Content -->
+            <div class="carContainer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+                        <script type="text/javascript">
+                            (function($) {
 
+                                $(document).ready(function() {
+                                    $('#etsy-search').bind('submit', function() {
+                                        api_key = "tunvbvzkqlqud5kkqfrvjyuk";
+                                        // terms = $('#etsy-terms').val();
+                                        terms = $('#dog_toys').val();
+                                        etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords=" +
+                                            terms + "&limit=12&includes=Images:1&api_key=" + api_key;
+
+                                        // etsyURL = "https://openapi.etsy.com/v2/listings/:listing_id/inventory/active.js?keywords=" +
+                                        // terms + "&write_missing_inventory&limit=15&includes=Images:1&api_key=" + api_key;
+
+                                        // etsyURLOne = "https://openapi.etsy.com/v2/shops/?api_key=$apikey=" +
+                                        //     terms + "&limit=12&includes=Images:1&api_key=" + api_key;
+
+                                        // realTimeFeed="https://openapi.etsy.com/v2/feeds/";
+                                        // etsyURLRealTime=realTimeFeed+terms+"&limit=12&includes=Images:1&api_key=" + api_key;
+
+                                        // $('#etsy-images').empty();
+                                        $('#dog_toys').empty();
+                                        $('<p></p>').text('Searching for ' + terms).appendTo('#etsy-images');
+
+                                        $.ajax({
+                                            url: etsyURL,
+                                            dataType: 'jsonp',
+                                            success: function(data) {
+                                                if (data.ok) {
+                                                    $('#etsy-images').empty();
+                                                    if (data.count > 0) {
+                                                        $.each(data.results, function(i, item) {
+                                                            $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#etsy-images").wrap(
+                                                                // "<a href='" + item.url + "'></a>"
+                                                                $("#etsy-images <a href=" + item.url + "></a>").attr("target", "_blank")
+                                                            );
+                                                            if (i % 4 == 3) {
+                                                                $('<br/>').appendTo('#etsy-images');
+                                                            }
+                                                        })
+                                                    } else {
+                                                        $('<p>No results.</p>').appendTo('#etsy-images');
+                                                    }
+                                                } else {
+                                                    $('#etsy-images').empty();
+                                                    alert(data.error);
+                                                }
+                                            }
+
+                                        });
+
+                                        return false;
+                                    })
+                                });
+
+                            })(jQuery);
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Footer -->
+            <footer class="py-5 bg-dark" id="footerGlobal">
+                <div class="container">
+                    <p class="m-0 text-center text-white"><img src="assets/img/cropped-pawsandthink-newlogo_favicon.png" width="64px" id="footerLogo">Copyright &copy; Your Website 2019</p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
 </body>
+<script src="assets/javascript/logic.js"></script>
 
 </html>
