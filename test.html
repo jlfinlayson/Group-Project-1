@@ -21,6 +21,32 @@
                         if (data.count > 0) {
                             $.each(data.results, function (i, item) {
                                 // HERE IS WHERE YOU ADD IN YOUR CAROSEL LOAD
+
+                                //div class row
+                                var rowDiv = $("<div>").addClass("row");
+
+                                //div class row_inner
+                                var rowInnerDiv = $("<div>").addClass("row_inner");
+
+                                //div class title
+                                var titleDiv = $("<div>").addClass("title");
+                                
+                                //div class title_media
+                                var titleMediaDiv = $("<div>").addClass("title_media");
+
+                                    //src = image from etsy
+
+                                //div class title_img
+                                var titleImgDiv = $("<div>").addClass("title_img");
+
+                                //div class title_title
+                                var titleTitleDiv = $("<div>").addClass("title_title");
+
+                                    //name of product
+
+                                //prepend it all above last
+
+
                                 $("<img/>").attr("src", item.Images[0].url_170x135).appendTo("#dogToys").wrap(
                                     $("#dogToys <a href=" + item.url + "></a>").attr("target", "_blank")
                                 );

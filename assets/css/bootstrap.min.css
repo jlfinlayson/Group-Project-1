@@ -4809,11 +4809,16 @@ input[type=submit].btn-block {
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem
+    text-align: center;
+    /* padding: 1.25rem */
 }
 
-.card-title {
-    margin-bottom: .75rem
+.card-title2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #2e90f8;
+    color: white;
+    text-align: center;
 }
 
 .card-subtitle {
@@ -4823,6 +4828,7 @@ input[type=submit].btn-block {
 
 .card-text:last-child {
     margin-bottom: 0
+
 }
 
 .card-link:hover {
@@ -4865,10 +4871,10 @@ input[type=submit].btn-block {
     border-bottom: 0
 }
 
-.card-header-pills {
+/* .card-header-pills {
     margin-right: -.625rem;
     margin-left: -.625rem
-}
+} */
 
 .card-img-overlay {
     position: absolute;
@@ -8154,6 +8160,10 @@ button.bg-dark:hover {
     width: auto!important
 }
 
+.w-adopt{
+    width: 320px;
+}
+
 .h-25 {
     height: 25%!important
 }
@@ -8167,7 +8177,7 @@ button.bg-dark:hover {
 }
 
 .h-100 {
-    height: 100%!important
+    height: 100%!important;
 }
 
 .h-auto {
