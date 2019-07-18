@@ -1,0 +1,669 @@
+google api
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6gGOLA3wg7UEzUKZupXKog_4QaqUyd9s&callback=initMap">
+    </script>
+
+
+hawks park map code
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- we should agree to a team name and logo then make a favicon here -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6gGOLA3wg7UEzUKZupXKog_4QaqUyd9s&callback=initMap">
+    </script>
+
+    <title>The Dog's Guide for Humans</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="enchilada">
+        <header>
+            <nav id="navBar">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a></li>
+                    <li>
+                        <a href="dogLander.html">Fun with your dog</a></li>
+                    <li>
+                        <a href="humanLander.html">Responsible Ownership</a></li>
+                    <li>
+                        <a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- main area for content, using bootstrap here -->
+        <div class="mainArea">
+            <header class="bg-primary py-5 mb-5">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-lg-12" style="height: 150px;">
+                            <h1 class="display-4 text-white mt-5 mb-2 splash">Philadelphia Dog Parks</h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Map code -->
+            <div class="mapContainer">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div id="map">
+                            <script>
+                                var map;
+                                var InforObj = [];
+                                var centerCords = {
+                                    lat: 39.952583,
+                                    lng: -75.165222
+                                };
+                                var markersOnMap = [{
+                                    placeName: "Palmer Doggie Depot",
+                                    address: "37 W Palmer St, Philadelphia, PA 19125",
+                                    LatLng: [{
+                                        lat: 39.975891,
+                                        lng: -75.133217
+                                    }]
+                                }, {
+                                    placeName: "Seger Dog Park",
+                                    address: " 1001 Rodman St, Philadelphia, PA 19107",
+                                    LatLng: [{
+                                        lat: 39.943310,
+                                        lng: -75.158729
+                                    }]
+                                }, {
+                                    placeName: "Penn's Landing Dog Park",
+                                    address: " 1 N Delaware Ave, Philadelphia, PA 19106",
+                                    LatLng: [{
+                                        lat: 39.953430,
+                                        lng: -75.140120
+                                    }]
+                                }, {
+                                    placeName: "Liberty Lands",
+                                    address: "913 N 3rd St, Philadelphia, PA 19123",
+                                    LatLng: [{
+                                        lat: 39.965800,
+                                        lng: -75.141910
+                                    }]
+                                }, {
+                                    placeName: "Schuylkill River Park",
+                                    address: "300 S 25th St, Philadelphia, PA 19103",
+                                    LatLng: [{
+                                        lat: 39.983140,
+                                        lng: -75.099974
+                                    }]
+                                }, {
+                                    placeName: "Mario Lanza Dog Run",
+                                    address: "235 Queen St, Philadelphia, PA 19147",
+                                    LatLng: [{
+                                        lat: 39.937321,
+                                        lng: -75.147583
+                                    }]
+                                }, {
+                                    placeName: "Monk's Dog Run",
+                                    address: "2899 E Allegheny Ave, Philadelphia, PA 19134",
+                                    LatLng: [{
+                                        lat: 39.983140,
+                                        lng: -75.099974
+                                    }]
+                                }, {
+                                    placeName: "Roxbourgh Dog Park",
+                                    address: "4117 Mitchell St, Philadelphia, PA 19128",
+                                    LatLng: [{
+                                        lat: 40.026890,
+                                        lng: -75.211357
+                                    }]
+                                }, {
+                                    placeName: "Gold Star Park",
+                                    address: "613 Wharton St, Philadelphia, PA 19147",
+                                    LatLng: [{
+                                        lat: 40.026890,
+                                        lng: -75.181152
+                                    }]
+                                }, {
+                                    placeName: "Cianfrani Park",
+                                    address: "613 Wharton St, Philadelphia, PA 19147",
+                                    LatLng: [{
+                                        lat: 39.940400,
+                                        lng: -75.155670
+                                    }]
+                                }, {
+                                    placeName: "Dickenson Square Park",
+                                    address: "515 Tasker St, Philadelphia, PA 19148",
+                                    LatLng: [{
+                                        lat: 39.928860,
+                                        lng: -75.154590
+                                    }]
+                                }, {
+                                    placeName: "Fairmount Park East",
+                                    address: "Sedgley Dr, Philadelphia, PA 19136",
+                                    LatLng: [{
+                                        lat: 39.972340,
+                                        lng: -75.187530
+                                    }]
+                                }, {
+                                    placeName: "Chew Playground",
+                                    addrress: "1800 Washington Ave, Philadelphia, PA 19146",
+                                    LatLng: [{
+                                        lat: 39.938270,
+                                        lng: -75.170020
+                                    }]
+                                }, {
+                                    placeName: "Wharton Square Park",
+                                    address: "2300 Wharton St, Philadelphia, PA 19146",
+                                    LatLng: [{
+                                        lat: 39.933670,
+                                        lng: -75.163860
+                                    }]
+                                }, {
+                                    placeName: "Piazza Dog Park",
+                                    address: "156 W Wildey St, Philadelphia, PA 19123",
+                                    LatLng: [{
+                                        lat: 39.966640,
+                                        lng: -75.138480
+                                    }]
+                                }];
+
+                                window.onload = function() {
+                                    initMap();
+                                };
+
+                                function addMarker() {
+                                    for (var i = 0; i < markersOnMap.length; i++) {
+                                        var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
+                                            '</h1><p>' + markersOnMap[i].address + '</p></div>';
+
+                                        const marker = new google.maps.Marker({
+                                            position: markersOnMap[i].LatLng[0],
+                                            map: map
+                                        });
+
+                                        const infowindow = new google.maps.InfoWindow({
+                                            content: contentString,
+                                            maxWidth: 200
+                                        });
+
+                                        marker.addListener('click', function() {
+                                            closeOtherInfo();
+                                            infowindow.open(marker.get('map'), marker);
+                                            InforObj[0] = infowindow;
+                                        });
+                                        // marker.addListener('mouseover', function () {
+                                        //     closeOtherInfo();
+                                        //     infowindow.open(marker.get('map'), marker);
+                                        //     InforObj[0] = infowindow;
+                                        // });
+                                        // marker.addListener('mouseout', function () {
+                                        //     closeOtherInfo();
+                                        //     infowindow.close();
+                                        //     InforObj[0] = infowindow;
+                                        // });
+                                    }
+                                }
+
+                                function closeOtherInfo() {
+                                    if (InforObj.length > 0) {
+                                        /* detach the info-window from the marker ... undocumented in the API docs */
+                                        InforObj[0].set("marker", null);
+                                        /* and close it */
+                                        InforObj[0].close();
+                                        /* blank the array */
+                                        InforObj.length = 0;
+                                    }
+                                }
+
+                                function initMap() {
+                                    map = new google.maps.Map(document.getElementById('map'), {
+                                        zoom: 12,
+                                        center: centerCords
+                                    });
+                                    addMarker();
+                                }
+                                //   function initMap() {
+                                //     //map options
+                                //     var options = {
+                                //       center: new google.maps.LatLng(39.952583, -75.165222),
+                                //       zoom: 13
+                                //     }
+                                //     //new map
+                                //     var map = new google.maps.Map(document.getElementById("map"), options);
+
+
+                                //     //coordinates for dog parks
+                                //     //array
+                                //     var markers = [
+                                //       { coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" },
+
+                                //       { coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" },
+
+                                //       { coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" },
+
+                                //       { coords: { lat: 39.965800, lng: 39.965800 }, content: "<h1>Liberty Lands</h1>" },
+
+                                //       { coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" },
+                                //       { coords: { lat: 39.983140, lng: -75.099974 }, content: "<h1>Monk's Dog Run</h1>" },
+                                //       { coords: { lat: 39.937321, lng: 39.937321 }, content: "<h1>Mario Lanza Dog Run</h1>" },
+                                //       { coords: { lat: 40.026890, lng: -75.211357 }, content: "<h1>Roxbourgh Dog Park</h1>" },
+                                //       { coords: { lat: 39.966640, lng: -75.138480 }, content: "<h1>Piazza Dog Park</h1>" },
+                                //       { coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Gold Star Park</h1>" },
+
+                                //     ];
+
+                                //     //loop thru markers
+                                //     for (var i = 0; i < markers.length; i++) {
+                                //       //add marker
+                                //       // if (markers[i].content) {
+                                //         var infowindow = new google.maps.InfoWindow({
+                                //           content: markers[i].content
+                                //         });
+
+                                //       // }
+                                //       var marker = new google.maps.Marker({
+                                //         position: new google.maps.LatLng(markers[i].coords.lat, markers[i].coords.lng),
+                                //         map: map
+                                //       });
+                                //       marker.addListener("click", function () {
+                                //         infowindow.open(map, marker);
+                                //       });
+                                //     }
+
+                                //     // addMarker({ coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" });
+                                //     // addMarker({ coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" });
+                                //     // addMarker({ coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" });
+                                //     // addMarker({ coords: { lat: 39.965800, lng: -75.141910 }, content: "<h1>Liberty Lands</h1>" });
+                                //     // addMarker({ coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" });
+
+                                //     //adding a new marker
+                                //     // function addMarker(props) {
+                                //       // var marker = new google.maps.Marker({
+                                //       //   position: props.coords,
+                                //       //   map: map
+                                //       // });
+
+                                //       // if (props.content) {
+                                //       //   var infowindow = new google.maps.infowindow({
+                                //       //     content: props.content
+                                //       //   });
+
+                                //       //   marker.addListener("click", function () {
+                                //       //     infowindow.open(map, marker);
+                                //       //   });
+                                //       // }
+                                //     // }
+                                //   }
+                                //
+                            </script>
+                        </div>
+                        <!-- map div end -->
+                    </div>
+                    <!-- col div end-->
+                    <!-- sidebar start -->
+                    <div class="mapSidebar col-md-4">
+                        <h2>This is a sidebar</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, ducimus a? Dolorem magnam</p>
+                    </div>
+                    <!-- sidebar end -->
+                </div>
+                <!-- row div end-->
+            </div>
+
+            <!-- Footer -->
+            <footer class="py-5 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+                </div>
+                <!-- /.container -->
+            </footer>
+
+        </div>
+    </div>
+</body>
+<script src="assets/javascript/logic.js"></script>
+
+</html>
+
+
+hawks vet map code
+<body>
+  <h1>Philadelpia Veterinarians</h1>
+  <div id="map"></div>
+  <script>
+    var map;
+    var InforObj = [];
+    var centerCords = {
+      lat: 39.952583,
+      lng:-75.165222
+    };
+    var markersOnMap = [{
+      placeName: "Art City Vets & Urgent Care",
+      address: "2001 Hamilton St #1, Philadelphia, PA 19130",
+      phone: " (215) 563-8387",
+      LatLng: [{
+        lat: 39.962660,
+        lng: -75.172690
+      }]
+    },
+    {
+      placeName: "Glencroft Veterinary Hospital",
+      address:" 1001 Rodman St, Philadelphia, PA 19107",
+      phone: " (610) 550-8006",
+      LatLng: [{
+        lat: 39.897381,
+        lng:-75.291817
+      }]
+    },
+    {
+      placeName: "PAWS Spay/Neuter and Wellness Clinic",
+      address:" 2900 Grays Ferry Ave, Philadelphia, PA 19146",
+      phone: " (215) 298-9680",
+      LatLng: [{
+        lat: 39.938770,
+        lng: -75.192467
+      }]
+    },
+    {
+      placeName: "Banfield Pet Hospital",
+      address:"2360 W Oregon Ave, Philadelphia, PA 19145",
+      phone: " (215) 952-0785",
+      LatLng: [{
+        lat: 39.965800,
+        lng: -75.141910
+      }]
+    },
+    {
+      placeName: "Simmons Animal Hospital",
+      address:"1500 Wolf St, Philadelphia, PA 19145",
+      phone:" (215) 468-2814",
+      LatLng: [{
+        lat: 39.921960,
+        lng: -75.172080
+      }]
+    },
+    {
+      placeName: "World of Animals at Rittenhouse",
+      address:"408 S 20th St, Philadelphia, PA 19146",
+      phone: " (215) 732-7321",
+      LatLng: [{
+        lat: 39.946510,
+        lng: -75.174870
+      }]
+    },
+    {
+      placeName: "Liberty Vet Pets",
+      address:"265 S 20th St, Philadelphia, PA 19103",
+      phone: " (888) 458-8587",
+      LatLng: [{
+        lat: 39.948490,
+        lng: -75.174110
+      }]
+    },
+    {
+      placeName: "Veterinary Hospital University Of Pennsylvania",
+      address:"3900 Spruce St, Philadelphia, PA 19104",
+      phone: " (215) 746-8387",
+      LatLng: [{
+        lat: 39.951160,
+        lng: -75.200990
+      }]
+    },
+    {
+      placeName: "Rittenhouse Veterinary Medical Center",
+      address:"1618 Pine St, Philadelphia, PA 19103",
+      phone: " (215) 732-9909",
+      LatLng: [{
+        lat: 39.945940,
+        lng: -75.169150
+      }]
+    },
+    {
+      placeName: "Companion Pet Hospital",
+      address:"1524 S 5th St, Philadelphia, PA 19147",
+      phone: " (215) 703-7387",
+      LatLng: [{
+        lat: 39.929114,
+        lng: -75.153699
+      }]
+    },
+    {
+      placeName: "Queen Village Animal Hospital",
+      address:"323 Bainbridge St, Philadelphia, PA 19147",
+      phone: " (215) 925-5753",
+      LatLng: [{
+        lat: 39.940708,
+        lng: -75.148521
+      }]
+    },
+    {
+      placeName: "Society Hill Veterinary Hospital",
+      address:" 501 S 2nd St, Philadelphia, PA 19147",
+      phone: " (215) 627-5955",
+      LatLng: [{
+        lat: 39.942068,
+        lng: -75.145501
+      }]
+    },
+    {
+      placeName: "Center City Veterinary Hospital",
+      addrress:" 37 S 3rd St, Philadelphia, PA 19106",
+      phone: " (215) 923-2284",
+      LatLng: [{
+        lat: 39.949153,
+        lng: -75.145794
+      }]
+    },
+    {
+      placeName: "Northern Liberties Veterinary Center",
+      address: " 622 N 2nd St, Philadelphia, PA 19123",
+      phone:" (215) 923-1838",
+      LatLng: [{
+        lat: 39.961246,
+        lng: -75.141428
+      }]
+    },
+    {
+      placeName: "Community Veterinary Partners",
+      address: "1801 Market St #1300, Philadelphia, PA 19103",
+      phone:"  (215) 302-4000",
+      LatLng: [{
+        lat: 39.953586,
+        lng: -75.170394
+      }]
+    },
+    {
+      placeName: "O'Neal Animal Hospital",
+      address: " 4424 Market St, Philadelphia, PA 19104",
+      phone:"  (215) 386-3293",
+      LatLng: [{
+        lat: 39.958135,
+        lng: -75.210579
+      }]
+    },
+    {
+      placeName: "Fairmount Animal Hospital",
+      address: " 2315 Fairmount Ave, Philadelphia, PA 19130",
+      phone:"(215) 684-1439",
+      LatLng: [{
+        lat: 39.967433,
+        lng: -75.175734
+      }]
+    },
+    {
+      placeName: "WAG: Whole Animal Gym",
+      address: " 611 S 2nd St, Philadelphia, PA 19147",
+      phone:" (215) 839-9244",
+      LatLng: [{
+        lat: 39.940981,
+        lng: -75.145599
+      }]
+    },
+    {
+      placeName: "Pet Health Center",
+      address: "3365 Frankford Ave, Philadelphia, PA 19134",
+      phone:" (215) 739-6401",
+      LatLng: [{
+        lat: 39.994925,
+        lng: -75.106287
+      }]
+    },
+    {
+      placeName: "Elmwood Central Animal Hospital",
+      address: " 6206 Elmwood Ave, Philadelphia, PA 19142",
+      phone:" (215) 724-8808",
+      LatLng: [{
+        lat: 39.924714,
+        lng: -75.226597
+      }]
+    },
+    {
+      placeName: " 1602 E Passyunk Ave, Philadelphia, PA 19148",
+      address: "156 W Wildey St, Philadelphia, PA 19123",
+      phone: " (215) 271-2800",
+      LatLng: [{
+        lat: 39.929775,
+        lng: -75.163714
+      }]
+    }
+    ];
+
+    window.onload = function () {
+      initMap();
+    };
+//marker info
+    function addMarker() {
+      for (var i = 0; i < markersOnMap.length; i++) {
+        var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
+          '</h1><p>' + markersOnMap[i].address +'</p></div>' + markersOnMap[i].phone +'</p></div>';
+
+        const marker = new google.maps.Marker({
+          position: markersOnMap[i].LatLng[0],
+          map: map
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200
+        });
+
+        marker.addListener('click', function () {
+          closeOtherInfo();
+          infowindow.open(marker.get('map'), marker);
+          InforObj[0] = infowindow;
+        });
+        // marker.addListener('mouseover', function () {
+        //     closeOtherInfo();
+        //     infowindow.open(marker.get('map'), marker);
+        //     InforObj[0] = infowindow;
+        // });
+        // marker.addListener('mouseout', function () {
+        //     closeOtherInfo();
+        //     infowindow.close();
+        //     InforObj[0] = infowindow;
+        // });
+      }
+    }
+
+    function closeOtherInfo() {
+      if (InforObj.length > 0) {
+        /* detach the info-window from the marker ... undocumented in the API docs */
+        InforObj[0].set("marker", null);
+        /* and close it */
+        InforObj[0].close();
+        /* blank the array */
+        InforObj.length = 0;
+      }
+    }
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: centerCords
+      });
+      addMarker();
+    }
+  //   function initMap() {
+  //     //map options
+  //     var options = {
+  //       center: new google.maps.LatLng(39.952583, -75.165222),
+  //       zoom: 13
+  //     }
+  //     //new map
+  //     var map = new google.maps.Map(document.getElementById("map"), options);
+
+
+  //     //coordinates for dog parks
+  //     //array
+  //     var markers = [
+  //       { coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" },
+
+  //       { coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" },
+
+  //       { coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" },
+
+  //       { coords: { lat: 39.965800, lng: 39.965800 }, content: "<h1>Liberty Lands</h1>" },
+
+  //       { coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" },
+  //       { coords: { lat: 39.983140, lng: -75.099974 }, content: "<h1>Monk's Dog Run</h1>" },
+  //       { coords: { lat: 39.937321, lng: 39.937321 }, content: "<h1>Mario Lanza Dog Run</h1>" },
+  //       { coords: { lat: 40.026890, lng: -75.211357 }, content: "<h1>Roxbourgh Dog Park</h1>" },
+  //       { coords: { lat: 39.966640, lng: -75.138480 }, content: "<h1>Piazza Dog Park</h1>" },
+  //       { coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Gold Star Park</h1>" },
+
+  //     ];
+
+  //     //loop thru markers
+  //     for (var i = 0; i < markers.length; i++) {
+  //       //add marker
+  //       // if (markers[i].content) {
+  //         var infowindow = new google.maps.InfoWindow({
+  //           content: markers[i].content
+  //         });
+
+  //       // }
+  //       var marker = new google.maps.Marker({
+  //         position: new google.maps.LatLng(markers[i].coords.lat, markers[i].coords.lng),
+  //         map: map
+  //       });
+  //       marker.addListener("click", function () {
+  //         infowindow.open(map, marker);
+  //       });
+  //     }
+
+  //     // addMarker({ coords: { lat: 39.975891, lng: -75.133217 }, content: "<h1>Palmer Doggie Depot</h1>" });
+  //     // addMarker({ coords: { lat: 39.943310, lng: -75.158729 }, content: "<h1>Seger Dog Park</h1>" });
+  //     // addMarker({ coords: { lat: 39.953430, lng: -75.140120 }, content: "<h1>Penn's Landing Dog Park</h1>" });
+  //     // addMarker({ coords: { lat: 39.965800, lng: -75.141910 }, content: "<h1>Liberty Lands</h1>" });
+  //     // addMarker({ coords: { lat: 39.959032, lng: -75.181152 }, content: "<h1>Schuylkill River Park</h1>" });
+
+  //     //adding a new marker
+  //     // function addMarker(props) {
+  //       // var marker = new google.maps.Marker({
+  //       //   position: props.coords,
+  //       //   map: map
+  //       // });
+
+  //       // if (props.content) {
+  //       //   var infowindow = new google.maps.infowindow({
+  //       //     content: props.content
+  //       //   });
+
+  //       //   marker.addListener("click", function () {
+  //       //     infowindow.open(map, marker);
+  //       //   });
+  //       // }
+  //     // }
+  //   }
+  // </script>
+
+</body>
