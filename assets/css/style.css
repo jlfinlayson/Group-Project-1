@@ -30,11 +30,11 @@
      transform: translateX(-50%);
      white-space: nowrap;
  }
-
- h2{
-    color:rgb(82, 104, 151);
-    font-size: 60px;
-    margin-top: 10px;
+ 
+ h2 {
+     color: rgb(82, 104, 151);
+     font-size: 60px;
+     margin-top: 10px;
  }
  
  .button {
@@ -197,8 +197,13 @@
  }
  /* main area of the pages */
  
+ header.bg-primary.py-5.mb-5 {
+     height: 190px;
+ }
+ 
  .bg-primary {
      background-color: rgb(255, 212, 79)!important;
+     /* height: 150!important; */
  }
  
  h1.splash {
@@ -223,12 +228,12 @@
  
  #humanSidebar {
      background-color: rgb(255, 212, 79);
-     color: white;
+     color: rgb(82, 104, 151);
  }
  
  #dogSidebar {
      background-color: rgb(255, 212, 79);
-     color: white;
+     color: rgb(82, 104, 151);
  }
  /* Map Page */
  

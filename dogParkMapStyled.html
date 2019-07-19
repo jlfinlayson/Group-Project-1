@@ -63,6 +63,16 @@
                                     lat: 39.952583,
                                     lng: -75.165222
                                 };
+                                var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+                                var icons = {
+                                    Parks: {
+                                        icon: iconBase + 'assets/img/pupIcon.png'
+                                    },
+                                    Vets: {
+                                        icon: iconBase + 'library_maps.png'
+                                    },
+
+                                };
                                 var markersOnMap = [{
                                     placeName: "Palmer Doggie Depot",
                                     address: "37 W Palmer St, Philadelphia, PA 19125",
@@ -305,8 +315,9 @@
                     <!-- col div end-->
                     <!-- sidebar start -->
                     <div class="mapSidebar col-md-4">
-                        <h2>This is a sidebar</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, ducimus a? Dolorem magnam</p>
+                        <h2>Dog Parks in Philly</h2>
+                        <p>Dog parks are as diverse as the breeds that use them. Many parks are customized to entertain but also to enclose the canine crowd with 4- to 6-feet-high metal fencing. </p>
+                        <p>Double gates allow dogs to safely enter and leave. Some offer separate areas for large and small dogs to romp</p>
                     </div>
                     <!-- sidebar end -->
                 </div>
@@ -316,7 +327,7 @@
             <!-- Footer -->
             <footer class="py-5 bg-dark" id="footerGlobal">
                 <div class="container">
-                    <p class="m-0 text-center text-white"><img src="assets/img/cropped-pawsandthink-newlogo_favicon.png" width="64px" id="footerLogo">Copyright &copy; Your Website 2019</p>
+                    <p class="m-0 text-center text-white"><img src="assets/img/cropped-pawsandthink-newlogo_favicon.png" width="64px" id="footerLogo">The Muttropolitan &copy;2019</p>
                 </div>
             </footer>
 
